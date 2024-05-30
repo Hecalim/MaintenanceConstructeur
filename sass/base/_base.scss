@@ -1,0 +1,22 @@
+@use '../abstracts/index' as abstracts;
+
+html{
+    // 62.5% to 16px is 10px
+    font-size: 62.5%;
+}
+body{
+    font-family: Inter, Roboto, Arial, sans-serif;
+    // Revert to 16px in rem
+    font-size: abstracts.$text-unit; // 1.6 rem
+}
+
+ul{
+    padding: 0;
+    list-style: none;
+    &.list-style{
+        list-style: disc;
+        &-none{
+            list-style: none;
+        }
+    }
+}

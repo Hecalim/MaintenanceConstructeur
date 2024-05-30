@@ -1,0 +1,39 @@
+@use "../abstracts/index" as abstracts;
+
+$spacing: (
+  auto: auto,
+  none: 0,
+  "0-5": calc(abstracts.$space-unit * 0.5),
+  "1": calc(abstracts.$space-unit * 1),
+  "1-5": calc(abstracts.$space-unit * 1.5),
+  "2": calc(abstracts.$space-unit * 2),
+  "2-5": calc(abstracts.$space-unit * 2.5),
+  "3": calc(abstracts.$space-unit * 3),
+  "3-5": calc(abstracts.$space-unit * 3.5),
+  "4": calc(abstracts.$space-unit * 4),
+  "4-5": calc(abstracts.$space-unit * 4.5),
+  "5": calc(abstracts.$space-unit * 5),
+  "5-5": calc(abstracts.$space-unit * 5.5),
+  "6": calc(abstracts.$space-unit * 6),
+  "6-5": calc(abstracts.$space-unit * 6.5),
+  "7": calc(abstracts.$space-unit * 7),
+);
+
+@mixin generate-spacing-classes($prefix, $property, $key, $value) {
+  .#{$prefix}-#{$key} { #{$property}: $value; }
+  .#{$prefix}-x-#{$key} { #{$property}-inline: $value; }
+  .#{$prefix}-y-#{$key} { #{$property}-block: $value; }
+  .#{$prefix}-t-#{$key} { #{$property}-top: $value; }
+  .#{$prefix}-r-#{$key} { #{$property}-right: $value; }
+  .#{$prefix}-b-#{$key} { #{$property}-bottom: $value; }
+  .#{$prefix}-l-#{$key} { #{$property}-left: $value; }
+}
+
+@each $key, $value in $spacing {
+  @include generate-spacing-classes(m, margin, $key, $value);
+  @include generate-spacing-classes(p, padding, $key, $value);
+
+  .gap-#{$key} { gap: $value; }
+  .gap-x-#{$key} { column-gap: $value; }
+  .gap-y-#{$key} { row-gap: $value; }
+}

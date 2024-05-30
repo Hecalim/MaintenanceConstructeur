@@ -1,0 +1,53 @@
+@use "../abstracts/index" as abstracts;
+
+$font-sizes: (
+  "xs": 0.7,
+  "sm": 0.8,
+  "base": 0.875,
+  "l": 1,
+  "xl": 1.125,
+  "2xl": 1.4,
+  "3xl": 1.75,
+  "4xl": 2
+);
+$font-weights: (
+  "thin": 225,
+  "light": 350,
+  "normal": 425,
+  "medium": 500,
+  "semibold": 600,
+  "bold": 666,
+  "extrabold": 750,
+  "black": 875
+);
+$text-alignments: (
+  "left": left,
+  "center": center,
+  "right": right,
+  "justify": justify
+);
+.txt {
+    // font-size
+    @each $key, $value in $font-sizes {
+        &-#{$key} {
+            @include abstracts.text($value);
+        }
+    }
+    // text-alignt
+    @each $key, $value in $text-alignments {
+        &-#{$key} {
+            text-align: $value;
+        }
+    }
+}
+.font {
+    // Font-weight
+    @each $key, $value in $font-weights {
+        &-#{$key} {
+            font-weight: $value;
+        }
+    }
+}
+.no-wrap {
+    white-space: nowrap;
+}

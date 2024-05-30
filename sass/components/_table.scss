@@ -1,0 +1,43 @@
+.table{
+    border-collapse: separate;
+    border-spacing: 0 1rem;
+    row-gap: 1rem;
+    font-family: 'Roboto Flex', Helvetica, Arial, sans-serif;
+    &__head{
+        color: var(--brand-blue-700);
+        font-size: 1.3rem;
+        text-align: left;
+        tr{
+            th{
+                padding: .6rem 1.2rem;
+            }
+        }
+    }
+    &__body{
+        tr{
+            font-weight: 600;
+            td{
+                padding: .8rem 1.2rem;
+                background: white;
+                white-space: nowrap;
+                &.bg-transparent{
+                    background-color: transparent !important;
+                    padding-left: 0;
+                }
+                &.row{
+                    &-start{
+                        border-radius: 6px 0 0 6px;
+                    }
+                    &-end{
+                        border-radius: 0 6px 6px 0;
+                    }
+                }
+            }
+            &:hover{
+                td{
+                    background: var(--blue-100);
+                }
+            }
+        }
+    }
+}

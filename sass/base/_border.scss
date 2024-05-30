@@ -1,0 +1,17 @@
+// Border-radius
+$rounded:(
+    "xs": 0.25,
+    "sm": 0.5,
+    "": 0.8,
+    "lg": 1,
+    "xl": 1.5,
+    "2xl": 2,
+    "3xl": 3,
+    "4xl": 4
+); 
+
+@each $key, $value in $rounded {
+    .rounded#{if($key == "", "", "-#{$key}")} {
+        border-radius: #{$value}rem;
+    }
+}

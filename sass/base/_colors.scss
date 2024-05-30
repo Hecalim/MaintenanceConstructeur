@@ -1,0 +1,136 @@
+
+$test: #000;
+$colors: (
+    'brand-blue': (
+        hue-saturation: (210, 100%),
+        shades: (
+            100: 96%,
+            200: 86%,
+            300: 76%,
+            400: 66%,
+            500: 56%,
+            600: 46%,
+            700: 36%,
+            800: 26%,
+            900: 16%,
+            1000: 6%
+        )
+    ),
+    'brand-orange': (
+        hue-saturation: (15, 96%),
+        shades: (
+            100: 98%,
+            200: 88%,
+            300: 78%,
+            400: 68%,
+            500: 58%,
+            600: 48%,
+            700: 38%,
+            800: 28%,
+            900: 18%,
+            1000: 8%            
+        )
+    ),
+    'grey': (
+        hue-saturation: (220, 40%),
+        shades: (
+            50: 98%,
+            100: 96%,
+            200: 86%,
+            300: 76%,
+            400: 66%,
+            500: 56%,
+            600: 46%,
+            700: 36%,
+            800: 26%,
+            900: 16%,
+            1000: 4%
+        )
+    ),
+    'green': (
+        hue-saturation: (120, 80%),
+        shades: (
+            100: 90%,
+            200: 78%,
+            300: 66%,
+            400: 54%,
+            500: 42%,
+            600: 30%,
+            700: 22%,
+            800: 14%,
+            900: 9%,
+            1000: 4%
+        )
+    ),
+    'orange': (
+        hue-saturation: (24, 100%),
+        shades: (
+            100: 95%,
+            200: 88%,
+            300: 78%,
+            400: 66%,
+            500: 54%,
+            600: 42%,
+            700: 30%,
+            800: 22%,
+            900: 16%,
+            1000: 8%
+        )
+    ),
+    'red': (
+        hue-saturation: (350, 82%),
+        shades: (
+            100: 95%,
+            200: 85%,
+            300: 75%,
+            400: 65%,
+            500: 53%,
+            600: 43%,
+            700: 33%,
+            800: 24%,
+            900: 15%,
+            1000: 8%
+        )
+    ),
+    'blue': (
+        hue-saturation: (232, 100%),
+        shades: (
+            100: 96%,
+            200: 90%,
+            300: 82%,
+            400: 74%,
+            500: 64%,
+            600: 54%,
+            700: 44%,
+            800: 34%,
+            900: 24%,
+            1000: 16%
+        )
+    )
+);
+
+:root {
+    @each $color, $data in $colors {
+      $hue-saturation: map-get($data, hue-saturation);
+      $shades: map-get($data, shades);
+      $hue: nth($hue-saturation, 1);
+      $saturation: nth($hue-saturation, 2);
+      
+      @each $shade, $lightness in $shades {
+        --#{$color}-#{$shade}: hsl(#{$hue}, #{$saturation}, #{$lightness});
+      }
+    }
+  }
+  
+  @each $color, $data in $colors {
+    $shades: map-get($data, shades);
+  
+    @each $shade, $lightness in $shades {
+      .txt-#{$color}-#{$shade} {
+        color: var(--#{$color}-#{$shade});
+      }
+      .bg-#{$color}-#{$shade} {
+        background-color: var(--#{$color}-#{$shade});
+      }
+    }
+  }

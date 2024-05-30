@@ -1,0 +1,19 @@
+[
+    {
+      "checkbox": true,
+      "date": "Chaudiere 1",
+      "qui": "OPE01",
+      "fichier": {
+        "icone": true,
+        "value": 5
+      },
+      "commentaire": {
+        "icone": true,
+        "text": "Oui"
+      },
+      "calendaire": "2024/03/11 18:34",
+      "tempsFonctionnement": "0 h",
+      "basculement": "9000"
+    }
+  ]
+  

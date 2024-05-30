@@ -1,0 +1,21 @@
+@use "../abstracts/index" as abstracts;
+
+.input{
+    padding: .8rem;
+    font-size: 1.4rem;
+    border: solid 1px var(--blue-400);
+    border-radius: 0.4rem;
+    &__placeholder{
+        font-size: 1.2rem;
+    }
+    &--checkbox{
+        @include abstracts.box(40px);
+    }
+    &:hover{
+        border-color: var(--blue-700);
+    }
+    &:focus{
+        border-color: var(--blue-700);
+        outline: solid 3px var(--blue-300);
+    }
+}

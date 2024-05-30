@@ -1,0 +1,57 @@
+@use "../abstracts/index" as abstracts;
+
+.checkbox{
+    @include abstracts.flex(row nowrap, center, center);
+    @include abstracts.box(18px);
+    position: relative;
+    font-size: 1.6rem;
+    @include abstracts.prefix(user-select, none, webkit moz ms);
+    cursor: pointer;
+    &__input{
+        @include abstracts.position(absolute, 0, 0, 0, 0);
+        transform: scale(0);
+        opacity: 0;
+        &:checked{
+            ~ .checkbox__mark{
+                background: var(--blue-500);
+                &::after{
+                    display: block;
+                }
+            }
+        }
+    }
+    &__mark{
+        @include abstracts.position(absolute, 0, 0, 0, 0);
+        @include abstracts.flex(row nowrap, center, center);
+        background-color: var(--grey-50);
+        border: solid 1px var(--blue-300);
+        border-radius: 0.4rem;
+        &::after{
+            content: "";
+            position: absolute;
+            display: none;
+            @include abstracts.box(5px, 8px);
+            border: solid white;
+            border-width: 0 3px 3px 0;
+            border-radius: 1px;
+            @include abstracts.prefix(transform, translateY(-1px) rotate(45deg), wekit ms moz);
+            // -webkit-transform: rotate(45deg);
+            // -ms-transform: rotate(45deg);
+            // transform: translateY(-2px) rotate(45deg) ;
+            transform-origin: center;
+        }
+    }
+    &:hover{
+        .checkbox{
+            &__input{
+                &:not(:checked){
+                    ~ .checkbox__mark{
+                        background: white;
+                        outline: solid 3px var(--blue-300);
+                        border-color: var(--blue-700);
+                    }
+                }
+            }
+        }
+    }
+}

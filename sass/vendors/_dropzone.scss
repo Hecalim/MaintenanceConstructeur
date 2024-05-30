@@ -1,0 +1,10 @@
+.dropzone{
+    background-color:var(--blue-100);
+    border: dashed 2px var(--blue-300);
+    border-radius: 8px;
+    &__instructions{
+        color: var(--grey-600);
+        text-align: center;
+        max-width: 24ch;
+    }
+}

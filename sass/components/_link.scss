@@ -1,0 +1,31 @@
+@use "../abstracts/index" as abstracts;
+
+.link{
+    position: relative;
+    color: var(--blue-600);
+    padding-bottom: .24rem;
+    line-height: 1.5;
+    text-decoration: none;
+    cursor: pointer;
+    &::before{
+        content:'';
+        display: block;
+        @include abstracts.position(absolute, null, 0, 0, 0);
+        @include abstracts.box(100%, 2px);
+        background-color: currentColor;
+        transform: scale(0);
+        transition: transform .2s ease-in-out;
+    }
+    &:active{
+        color: var(--red-400);
+    }
+    &:visited{
+        color: var(--blue-600);
+    }
+    &:hover{
+        &::before{
+            transform: scaleX(1);
+        }
+    }
+   
+}

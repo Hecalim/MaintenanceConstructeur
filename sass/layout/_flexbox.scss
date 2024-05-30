@@ -1,0 +1,76 @@
+@use "../abstracts/index" as abstracts;
+
+.flex {
+  display: flex;
+  &-no-flex{
+    flex: initial;
+  }
+  // Direction
+  &-row {
+    flex-direction: row;
+    &-reverse {
+      flex-direction: row-reverse;
+    }
+  }
+  &-col {
+    flex-direction: column;
+    &-reverse {
+      flex-direction: column-reverse;
+    }
+  }
+  // Wrap
+  &-wrap {
+    flex-wrap: wrap;
+    &-reverse {
+      flex-wrap: wrap-reverse;
+    }
+  }
+  &-nowrap {
+    flex-wrap: nowrap;
+  }
+  // Grow
+  &-grow {
+    flex-grow: 1;
+  }
+  &-grow-0 {
+    flex-grow: 0;
+  }
+  // Shrink
+  &-shrink {
+    flex-shrink: 1;
+  }
+  &-shrink-0 {
+    flex-shrink: 0;
+  }
+}
+// Align items
+.items {
+  &-start {
+    align-items: flex-start;
+  }
+  &-center {
+    align-items: center;
+  }
+  &-end {
+    align-items: flex-end;
+  }
+  &-stretch {
+    align-items: stretch;
+  }
+}
+// Justify content
+.just {
+  &-normal {
+    justify-content: normal;
+  }
+  &-start {
+    justify-content: flex-start;
+  }
+  &-center {
+    justify-content: center;
+  }
+  &-end {
+    justify-content: flex-end;
+  }
+}
+
